@@ -83,7 +83,7 @@ const RideList = () => {
 				<Text style={tw` text-xs text-green-500 font-semibold`}>
 					distant travel: {travelTimeInformation?.distance.text}
 				</Text>
-				<Text style={tw` text-base font-semibold`}>Select a Ride</Text>
+				<Text style={tw` text-base font-semibold`}>Select your Ride</Text>
 			</View>
 			<View style={tw`h-2/3`}>
 				<FlatList
