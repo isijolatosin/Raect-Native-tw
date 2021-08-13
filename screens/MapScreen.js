@@ -8,6 +8,7 @@ import Schedule from '../components/Schedule';
 import 'react-native-gesture-handler'; //for smooth slides...
 import { createStackNavigator } from '@react-navigation/stack';
 import RideList from '../components/RideList';
+import ConfirmTrip from '../components/ConfirmTrip';
 
 const MapScreen = () => {
 	const Stack = createStackNavigator();
@@ -34,6 +35,11 @@ const MapScreen = () => {
 						options={{ headerShown: false }}
 						name="RideList"
 						component={RideList}
+					/>
+					<Stack.Screen
+						options={{ headerShown: false }}
+						name="ConfirmTrip"
+						component={ConfirmTrip}
 					/>
 				</Stack.Navigator>
 			</View>

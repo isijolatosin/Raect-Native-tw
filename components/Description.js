@@ -36,10 +36,21 @@ const Description = () => {
 							<Icon name="time" color="gray" size={25} type="ionicon" />
 						</View>
 						<View>
-							<Text style={tw`text-black text-sm font-semibold`}>From: </Text>
-							<Text style={tw`text-gray-600 text-xs`}>
+							<Text style={tw`text-gray-400 text-xs font-semibold`}>
+								origin:{' '}
+							</Text>
+							<Text style={tw`text-gray-800 text-xs`}>
 								{origin.description}
 							</Text>
+							<View style={tw`flex-row`}>
+								<Text style={tw`text-gray-400 text-xs italic`}>
+									Latitude: {origin.location.lat} |
+								</Text>
+								<Text style={tw`text-gray-400 text-xs italic`}>
+									{' '}
+									Longitude: {origin.location.lng}
+								</Text>
+							</View>
 						</View>
 					</TouchableOpacity>
 				)}
@@ -57,10 +68,21 @@ const Description = () => {
 									<Icon name="time" color="gray" size={25} type="ionicon" />
 								</View>
 								<View>
-									<Text style={tw`text-black text-sm font-semibold`}>To: </Text>
-									<Text style={tw`text-gray-600 text-xs`}>
+									<Text style={tw`text-gray-400 text-xs font-semibold`}>
+										destination:{' '}
+									</Text>
+									<Text style={tw`text-gray-800 text-xs`}>
 										{destination.description}
 									</Text>
+									<View style={tw`flex-row`}>
+										<Text style={tw`text-gray-400 text-xs italic`}>
+											Latitude: {destination.location.lat} |
+										</Text>
+										<Text style={tw`text-gray-400 text-xs italic`}>
+											{' '}
+											Longitude: {destination.location.lng}
+										</Text>
+									</View>
 								</View>
 							</TouchableOpacity>
 						)}

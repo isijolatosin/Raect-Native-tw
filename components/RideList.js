@@ -91,7 +91,9 @@ const RideList = () => {
 					keyExtractor={(item) => item.id}
 					renderItem={({ item: { id, title, image, multiplier, price } }) => (
 						<TouchableOpacity
-							onPress={() => dispatch(setSelection({ id, title }))}
+							onPress={() =>
+								dispatch(setSelection({ id, title, multiplier, image, price }))
+							}
 							style={tw`py-1 px-3 flex-row items-center ${
 								selection?.id === id ? 'bg-gray-100' : 'bg-white'
 							}`}>
@@ -130,9 +132,12 @@ const RideList = () => {
 			<View
 				style={tw`bg-white w-full h-1/3 items-center border-t border-gray-100 pt-1  `}>
 				<View style={tw`flex-row items-center justify-center `}>
-					<TouchableOpacity disabled={!selection} style={tw`bg-black w-2/4`}>
+					<TouchableOpacity
+						onPress={() => selection && navigation.navigate('ConfirmTrip')}
+						disabled={!selection}
+						style={tw`bg-black ${!selection && 'bg-gray-200'} w-2/4`}>
 						<Text
-							style={tw` text-white p-2 text-base self-center font-semibold `}>
+							style={tw`text-white p-2 text-base self-center font-semibold `}>
 							Confirm {selection?.title}
 						</Text>
 					</TouchableOpacity>
