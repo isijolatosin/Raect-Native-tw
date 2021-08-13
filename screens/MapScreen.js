@@ -16,7 +16,7 @@ const MapScreen = () => {
 
 	return (
 		<View style={tw`relative h-full w-full`}>
-			<View style={tw`h-1/2`}>
+			<View style={tw`h-2/5`}>
 				<Map />
 			</View>
 			<TouchableOpacity
@@ -24,7 +24,7 @@ const MapScreen = () => {
 				style={tw`absolute rounded-full bg-gray-500 p-3 mt-16 ml-5`}>
 				<Icon name="arrowleft" color="white" type="antdesign" />
 			</TouchableOpacity>
-			<View style={tw`h-1/2`}>
+			<View style={tw`h-3/5`}>
 				<Stack.Navigator>
 					<Stack.Screen
 						options={{ headerShown: false }}

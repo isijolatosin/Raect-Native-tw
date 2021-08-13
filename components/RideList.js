@@ -131,7 +131,7 @@ const RideList = () => {
 
 			<View
 				style={tw`bg-white w-full h-1/3 items-center border-t border-gray-100 pt-1  `}>
-				<View style={tw`flex-row items-center justify-center `}>
+				<View style={tw`flex-row items-center justify-center pb-5 `}>
 					<TouchableOpacity
 						onPress={() => selection && navigation.navigate('ConfirmTrip')}
 						disabled={!selection}

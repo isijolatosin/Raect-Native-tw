@@ -16,16 +16,16 @@ const ConfirmTrip = () => {
 	const navigation = useNavigation();
 
 	return (
-		<View style={tw`items-center mt-3 bg-white h-full`}>
-			<Text style={tw` text-xs text-green-500 font-semibold my-5 `}>
+		<View style={tw`items-center pt-3 bg-white h-full`}>
+			<Text style={tw` text-xs text-green-500 font-semibold py-3 `}>
 				Trip Confirmation ({travelTimeInformation?.distance.text})
 			</Text>
-			<View style={tw`shadow-lg bg-white p-5 rounded-md`}>
+			<View style={tw`shadow-lg bg-white p-5 rounded-md mt-2`}>
 				<View>
 					<Image
 						style={{
-							width: 200,
-							height: 200,
+							width: 180,
+							height: 180,
 							resizeMode: 'contain',
 						}}
 						source={{ uri: selection.image }}
