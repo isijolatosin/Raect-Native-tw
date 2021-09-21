@@ -1,21 +1,23 @@
-import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
-import { Icon } from 'react-native-elements';
+import { useNavigation } from '@react-navigation/native';
+import { useSelector } from 'react-redux';
 import tw from 'tailwind-react-native-classnames';
 import Map from '../components/Map';
-import Schedule from '../components/Schedule';
-import 'react-native-gesture-handler'; //for smooth slides...
+import { selectOrigin } from '../slices/navSlice';
+import { Icon } from 'react-native-elements';
 import { createStackNavigator } from '@react-navigation/stack';
+import Schedule from '../components/Schedule';
 import RideList from '../components/RideList';
 import ConfirmTrip from '../components/ConfirmTrip';
 
 const MapScreen = () => {
 	const Stack = createStackNavigator();
 	const navigation = useNavigation();
+	const origin = useSelector(selectOrigin);
 
 	return (
-		<View style={tw`relative h-full w-full`}>
+		<View style={tw`h-full w-full`}>
 			<View style={tw`h-2/5`}>
 				<Map />
 			</View>

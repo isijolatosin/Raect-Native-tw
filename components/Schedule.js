@@ -1,10 +1,7 @@
-import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import Locations from './Locations';
-import { Icon } from 'react-native-elements';
-import tw from 'tailwind-react-native-classnames';
 import { useDispatch, useSelector } from 'react-redux';
+import tw from 'tailwind-react-native-classnames';
 import {
 	selectDestination,
 	selectOrigin,
@@ -12,14 +9,19 @@ import {
 } from '../slices/navSlice';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import { GOOGLEMAP_APIKEY } from '@env';
+import Locations from './Locations';
+import { useNavigation } from '@react-navigation/native';
+import { Icon } from 'react-native-elements';
 
 const Schedule = () => {
+	const dispatch = useDispatch();
 	const destination = useSelector(selectDestination);
 	const origin = useSelector(selectOrigin);
+
 	const navigation = useNavigation();
-	const dispatch = useDispatch();
+
 	return (
-		<View style={tw`relative bg-white pt-1 mt-1 h-full w-full`}>
+		<View>
 			<View style={tw`items-center pt-3 pb-10`}>
 				<Text style={tw`text-gray-700 font-semibold text-lg`}>
 					Hi Christabel

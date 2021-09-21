@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, SafeAreaView, Image } from 'react-native';
+import { View, Image, Text } from 'react-native';
 import tw from 'tailwind-react-native-classnames';
 import NavOptions from '../components/NavOptions';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
@@ -80,8 +80,10 @@ const HomeScreen = () => {
 				)}
 			</View>
 			<View style={tw`h-1/3 p-5`}>
-				<Text style={tw`mb-3 text-base`}>Around you</Text>
-				<View style={tw`h-full `}>
+				<View>
+					<Text style={tw`mb-3 text-base`}>Around You</Text>
+				</View>
+				<View style={tw`h-full`}>
 					<MapView
 						style={tw`flex-1`}
 						mapType="mutedStandard"

@@ -22,7 +22,6 @@ const Description = () => {
 	} else {
 		destinationArr.splice(destinationArr.length, 0, destination);
 	}
-
 	return (
 		<>
 			<View>
@@ -61,7 +60,7 @@ const Description = () => {
 						renderItem={(item) => (
 							<TouchableOpacity
 								style={[
-									tw`flex rounded-md bg-gray-100 flex-row pl-4 pt-2 pb-2 mb-2 mr-5`,
+									tw`flex rounded-md bg-gray-100 flex-row pl-4 pt-2 pb-2 mb-2 mr-7`,
 									{ width: '82%', alignSelf: 'flex-end' },
 								]}>
 								<View style={tw` mr-1 mt-1`}>

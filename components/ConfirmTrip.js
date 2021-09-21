@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { useSelector } from 'react-redux';
@@ -7,14 +8,12 @@ import {
 } from '../slices/navSlice';
 import tw from 'tailwind-react-native-classnames';
 import { Icon } from 'react-native-elements';
-import { useNavigation } from '@react-navigation/native';
 
 const ConfirmTrip = () => {
 	const travelTimeInformation = useSelector(selectTravelTimeInformation);
 	const selection = useSelector(selectSelection);
 	const SURGE_CHARGE_RATE = 1.5;
 	const navigation = useNavigation();
-
 	return (
 		<View style={tw`items-center pt-3 bg-white h-full`}>
 			<Text style={tw` text-xs text-green-500 font-semibold py-3 `}>

@@ -2,14 +2,14 @@ import React, { useRef } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
-import { useDispatch, useSelector } from 'react-redux';
 import tw from 'tailwind-react-native-classnames';
+import { GOOGLEMAP_APIKEY } from '@env';
 import {
 	selectDestination,
 	selectOrigin,
 	setTravelTimeInformation,
 } from '../slices/navSlice';
-import { GOOGLEMAP_APIKEY } from '@env';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Map = () => {
 	const destination = useSelector(selectDestination);
@@ -40,63 +40,62 @@ const Map = () => {
 
 		getTravelTime();
 	}, [origin, destination, GOOGLEMAP_APIKEY]);
+
 	return (
 		<>
-			{origin && (
-				<MapView
-					ref={mapRef}
-					style={tw`flex-1`}
-					mapType="mutedStandard"
-					initialRegion={{
-						latitude: origin?.location.lat,
-						longitude: origin?.location.lng,
-						latitudeDelta: 0.0922,
-						longitudeDelta: 0.0421,
-					}}>
-					{origin && destination && (
-						<MapViewDirections
-							origin={origin.description}
-							destination={destination.description}
-							apikey={GOOGLEMAP_APIKEY}
-							strokeWidth={3}
-							strokeColor="black"
-						/>
-					)}
-					{origin?.location && (
-						<Marker
-							coordinate={{
-								latitude: origin.location.lat,
-								longitude: origin.location.lng,
-							}}
-							title="origin"
-							description={origin.description}
-							identifier="origin"
-						/>
-					)}
-					{destination && (
-						<Marker
-							coordinate={{
-								latitude: destination.location.lat,
-								longitude: destination.location.lng,
-							}}
-							title="destination"
-							description={destination.description}
-							identifier="destination"
-						/>
-					)}
-					{origin?.location && (
-						<Marker
-							coordinate={{
-								latitude: origin.location.lat,
-								longitude: origin.location.lng,
-							}}
-							title="origin"
-							description={origin.description}
-							identifier="origin"
-						/>
-					)}
-				</MapView>
-			)}
+			<MapView
+				ref={mapRef}
+				style={tw`flex-1`}
+				mapType="mutedStandard"
+				initialRegion={{
+					latitude: origin?.location.lat,
+					longitude: origin?.location.lng,
+					latitudeDelta: 0.0922,
+					longitudeDelta: 0.0421,
+				}}>
+				{origin && destination && (
+					<MapViewDirections
+						origin={origin.description}
+						destination={destination.description}
+						apikey={GOOGLEMAP_APIKEY}
+						strokeWidth={3}
+						strokeColor="black"
+					/>
+				)}
+				{origin?.location && (
+					<Marker
+						coordinate={{
+							latitude: origin.location.lat,
+							longitude: origin.location.lng,
+						}}
+						title="origin"
+						description={origin.description}
+						identifier="origin"
+					/>
+				)}
+				{destination && (
+					<Marker
+						coordinate={{
+							latitude: destination.location.lat,
+							longitude: destination.location.lng,
+						}}
+						title="destination"
+						description={destination.description}
+						identifier="destination"
+					/>
+				)}
+				{origin?.location && (
+					<Marker
+						coordinate={{
+							latitude: origin.location.lat,
+							longitude: origin.location.lng,
+						}}
+						title="origin"
+						description={origin.description}
+						identifier="origin"
+					/>
+				)}
+			</MapView>
 		</>
 	);
 };
